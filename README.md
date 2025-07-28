@@ -2,7 +2,7 @@
 
 A demo project showcasing core microservices patterns using Spring Boot, Spring Cloud, Redis, and Resilience4j. This project includes service discovery, API gateway routing, Redis-backed rate limiting, and circuit breaker handling.
 
-## 🧱 Project Structure
+## Project Structure
 
 microservices-patterns-demo/
 │
@@ -15,7 +15,7 @@ microservices-patterns-demo/
 
 ---
 
-## 🔌 Services Overview
+## Services Overview
 
 | Service          | Port  | Description |
 |------------------|-------|-------------|
@@ -26,7 +26,7 @@ microservices-patterns-demo/
 
 ---
 
-### ⚙️ Tech Stack
+### Tech Stack
 
 - Java 17
 - Spring Boot 3.x
@@ -39,7 +39,7 @@ microservices-patterns-demo/
 
 ---
 
-## 🔄 Microservice Patterns Implemented
+## Microservice Patterns Implemented
 
 ### Service Discovery (Eureka)
 - `discovery-server` runs on port `8761`
