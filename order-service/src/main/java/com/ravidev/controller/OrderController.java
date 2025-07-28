@@ -10,7 +10,7 @@ public class OrderController {
 
     @GetMapping("/hello")
     public String helloOrder(){
-        String msg = "hello from order-service!";
+        String msg = "hello from order-service!!";
         return msg;
     }
 }
