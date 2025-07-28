@@ -58,7 +58,12 @@ microservices-patterns-demo/
         redis-rate-limiter.replenishRate: 5
         redis-rate-limiter.burstCapacity: 10
         key-resolver: "#{@ipKeyResolver}"
-###Run the Services
+### Circuit Breaker with Resilience4j
+1. Implemented in order-service to handle failures from user-service
+2. Uses @CircuitBreaker annotation
+3. Fallback methods provide graceful degradation
+
+### Run the Services
 You can start each service individually or use IntelliJ's multi-module run config:
 1. start redis-server
 2. discovery-service
@@ -66,11 +71,9 @@ You can start each service individually or use IntelliJ's multi-module run confi
 4. user-service
 5. order-service
 
- ###Testing the System
-✅ Service Registry
-Access http://localhost:8761 to see registered services
-
-✅ Rate Limiting
-Send repeated requests to: http://localhost:8080/order/hello
-
+### Testing the System
+1. Service Registry
+    Access http://localhost:8761 to see registered services
+2. Rate Limiting
+    Send repeated requests to: http://localhost:8080/order/hello
 Exceeding limit should return 429 Too Many Requests
