@@ -58,26 +58,15 @@ microservices-patterns-demo/
         redis-rate-limiter.replenishRate: 5
         redis-rate-limiter.burstCapacity: 10
         key-resolver: "#{@ipKeyResolver}"
-### Start Redis (if not already running)
-redis-server
+###Run the Services
+You can start each service individually or use IntelliJ's multi-module run config:
+1. start redis-server
+2. discovery-service
+3. api-gateway
+4. user-service
+5. order-service
 
-### Start Eureka Discovery Server
-cd discovery-server
-mvn spring-boot:run
-
-### Start API Gateway
-cd ../api-gateway
-mvn spring-boot:run
-
-### Start User Service
-cd ../user-service
-mvn spring-boot:run
-
-### Start Order Service
-cd ../order-service
-mvn spring-boot:run
-
- Testing the System
+ ###Testing the System
 ✅ Service Registry
 Access http://localhost:8761 to see registered services
 
