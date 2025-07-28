@@ -26,7 +26,7 @@ microservices-patterns-demo/
 
 ---
 
-## ⚙️ Tech Stack
+### ⚙️ Tech Stack
 
 - Java 17
 - Spring Boot 3.x
@@ -41,7 +41,7 @@ microservices-patterns-demo/
 
 ## 🔄 Microservice Patterns Implemented
 
-### ✅ Service Discovery (Eureka)
+### Service Discovery (Eureka)
 - `discovery-server` runs on port `8761`
 - All other services register themselves with Eureka
 - `api-gateway` uses load-balanced URLs (`lb://service-name`) to route
