@@ -10,7 +10,7 @@ public class UserController {
 
     @GetMapping("/hello")
     public String helloOrder(){
-        String msg = "hello from user-service!";
+        String msg = "hello from user-service!!";
         return msg;
     }
 }
