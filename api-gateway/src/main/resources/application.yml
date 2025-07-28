@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: true
+          routes:
+            - id: user-service
+              uri: lb://user-service #lb:// load-balanced URI via service discovery
+              predicates:
+                - Path=/user/** # forwarded to user-service
+            - id: order-service
+              uri: lb://order-service
+              predicates:
+                - Path=/order/**
+              filters:
+                - name: RequestRateLimiter
+                  args:
+                    redis-rate-limiter.replenishRate: 1
+                    redis-rate-limiter.burstCapacity: 1
+                    redis-rate-limiter.requestedTokens: 1
+                    key-resolver: "#{@ipKeyResolver}" #this bean is used, there shld be bean with this name
+  data:
+    redis:
+      host: localhost
+      port: 6379
+server:
+  port:8080
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
